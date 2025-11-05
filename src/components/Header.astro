@@ -1,32 +1,45 @@
 ---
 // src/components/Header.astro
 ---
-<header class="absolute top-0 left-0 z-20 w-full">
-  <div class="container flex items-center justify-between py-6">
-    <!-- 🌈 Logo -->
-    <a href="/" class="flex items-center gap-3">
-      <img
-        src="/images/krafty-logo.png"
-        alt="Krafty Kids logo"
-        class="h-10 w-auto drop-shadow-md transition-transform hover:scale-105"
-      />
-      <span class="sr-only">Krafty Kids</span>
-    </a>
+<header class="fixed inset-x-0 top-0 z-40">
+  <div
+    class="mx-auto w-full"
+  >
+    <!-- frosted bar -->
+    <div class="backdrop-blur-md bg-white/80 border-b border-black/10 shadow-sm">
+      <div class="container flex h-16 items-center justify-between">
+        <!-- Logo (on a clean surface) -->
+        <a href="/" class="flex items-center gap-3">
+          <div class="flex items-center justify-center h-10 w-10 rounded-md bg-white shadow ring-1 ring-black/10">
+            <img
+              src="/images/krafty-logo.png"
+              alt="Krafty Kids"
+              class="h-7 w-auto"
+            />
+          </div>
+          <span class="sr-only">Krafty Kids</span>
+        </a>
 
-    <!-- 🧭 Navigation -->
-    <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-white/90">
-      <a href="#programs" class="hover:text-white transition-colors">Programs</a>
-      <a href="#our-story" class="hover:text-white transition-colors">Our Story</a>
-      <a href="#gallery" class="hover:text-white transition-colors">Photo Gallery</a>
-      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-    </nav>
+        <!-- Nav -->
+        <nav class="hidden md:flex items-center gap-8 text-[16px] font-medium text-slate-800">
+          <a href="#programs"    class="hover:text-slate-950 transition-colors">Programs</a>
+          <a href="#story"       class="hover:text-slate-950 transition-colors">Our Story</a>
+          <a href="#gallery"     class="hover:text-slate-950 transition-colors">Photo Gallery</a>
+        </nav>
 
-    <!-- 📱 Mobile menu placeholder -->
-    <button class="md:hidden flex items-center justify-center p-2 text-white/90 hover:text-white focus:outline-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+        <!-- contact CTA (optional) -->
+        <a
+          href="#contact"
+          class="hidden md:inline-flex items-center rounded-md bg-[#E55757] px-3.5 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-black/10 hover:brightness-110"
+        >Get in touch!</a>
+
+        <!-- Mobile menu button (placeholder) -->
+        <button class="md:hidden inline-flex items-center justify-center rounded p-2 text-slate-900/80 hover:text-slate-900" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
