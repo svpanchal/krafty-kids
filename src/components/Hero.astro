@@ -1,7 +1,7 @@
 ---
 /* src/components/Hero.astro */
 ---
-<section id="top" class="relative min-h-[92vh] overflow-hidden">
+<section id="top" class="relative min-h-[92vh] overflow-hidden pt-16">
   <picture>
     <img
       src="/images/hero.jpg"
@@ -9,7 +9,16 @@
       class="absolute inset-0 h-full w-full object-cover"
     />
   </picture>
-
+  <!-- Overlay confined to the hero only -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- top blur for header legibility -->
+    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/35 to-transparent"></div>
+    <!-- full-surface color wash to brighten image (peach+transparent) -->
+    <div class="absolute inset-0"
+         style="background:
+           radial-gradient(70% 60% at 20% 10%, rgba(255,233,223,.25), transparent 70%),
+           linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.35)); mix-blend: normal;"></div>
+  </div>
   <!-- ✨ Layered “paint-wash” gradient -->
   <div class="absolute inset-0 pointer-events-none mix-blend-soft-light"
        style="background:
