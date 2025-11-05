@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 ---
+<Layout title="Krafty Kids">
+  <Header />
+  <main>
+    <Hero />
 
-<Layout>
-	<Welcome />
+    <!-- 2) Programs -->
+    <section id="programs" class="py-24">
+      <div class="container">
+        <!-- we'll drop a 3-up grid here next -->
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Programs</h2>
+        <p class="text-white/80 max-w-[70ch]">Overview copy goes here.</p>
+      </div>
+    </section>
+
+    <!-- 3) Our Story -->
+    <section id="story" class="py-24 border-t border-white/10">
+      <div class="container">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Our Story</h2>
+        <p class="text-white/80 max-w-[70ch]">Founding story / mission.</p>
+      </div>
+    </section>
+
+    <!-- 4) Photo Gallery -->
+    <section id="gallery" class="py-24 border-t border-white/10">
+      <div class="container">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Photo Gallery</h2>
+        <p class="text-white/80">Grid goes here.</p>
+      </div>
+    </section>
+
+    <!-- 5) Contact -->
+    <section id="contact" class="py-24 border-t border-white/10">
+      <div class="container">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Contact</h2>
+        <p class="text-white/80">hello@kraftykids.org • Instagram • Donate</p>
+      </div>
+    </section>
+  </main>
 </Layout>

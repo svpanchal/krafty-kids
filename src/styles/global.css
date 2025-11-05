@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens */
+/* Brand-ish colors from the logo */
+:root{
+    --brand-coral:#E55757;   /* logo red/coral */
+    --brand-peach:#FFE9DF;   /* palette/brush body */
+    --brand-sun:#F7EA65;     /* CTA yellow you used */
+    --brand-lilac:#A884F5;   /* brush handle purple */
+    --ink-warm:#FFF3ED;      /* warm light for headlines on photos */
+  }
+
+  /* Fun headline glow (subtle, colorful—not gothic) */
+  .text-glow-warm{
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.18),
+      0 0 14px rgba(229,87,87,.22),
+      0 0 26px rgba(168,132,245,.18);
+  }
+  /* Float animation for sparkles */
+  @keyframes floaty { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
+  .sparkle { animation: floaty 5s ease-in-out infinite; }
+  .sparkle:nth-child(2){ animation-duration: 6.5s }
+  .sparkle:nth-child(3){ animation-duration: 7.5s }
+
+/* Base */
+html,body{height:100%}
+body{
+  @apply antialiased;
+  color: var(--ink);
+  background: linear-gradient(180deg,#0c0c0e 0%, #121316 35%, #16171B 100%);
+}
+
+/* Helpers */
+.container{width:min(1200px,100% - 2rem); margin-inline:auto}
+.glass{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  border-radius: 18px;
+}
+
+/* Text shadow helper for headlines over photos */
+.text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,.45); }

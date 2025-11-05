@@ -1,0 +1,32 @@
+---
+// src/components/Header.astro
+---
+<header class="absolute top-0 left-0 z-20 w-full">
+  <div class="container flex items-center justify-between py-6">
+    <!-- 🌈 Logo -->
+    <a href="/" class="flex items-center gap-3">
+      <img
+        src="/images/krafty-logo.png"
+        alt="Krafty Kids logo"
+        class="h-10 w-auto drop-shadow-md transition-transform hover:scale-105"
+      />
+      <span class="sr-only">Krafty Kids</span>
+    </a>
+
+    <!-- 🧭 Navigation -->
+    <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-white/90">
+      <a href="#programs" class="hover:text-white transition-colors">Programs</a>
+      <a href="#our-story" class="hover:text-white transition-colors">Our Story</a>
+      <a href="#gallery" class="hover:text-white transition-colors">Photo Gallery</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </nav>
+
+    <!-- 📱 Mobile menu placeholder -->
+    <button class="md:hidden flex items-center justify-center p-2 text-white/90 hover:text-white focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</header>

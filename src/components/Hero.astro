@@ -1,0 +1,54 @@
+---
+/* src/components/Hero.astro */
+---
+<section id="top" class="relative min-h-[92vh] overflow-hidden">
+  <picture>
+    <img
+      src="/images/hero.jpg"
+      alt="Kids creating colorful art together"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </picture>
+
+  <!-- ✨ Layered “paint-wash” gradient -->
+  <div class="absolute inset-0 pointer-events-none mix-blend-soft-light"
+       style="background:
+        linear-gradient(115deg,
+          rgba(255,233,223,0.7) 0%,    /* peach */
+          rgba(229,87,87,0.25) 40%,    /* coral */
+          rgba(168,132,245,0.25) 75%), /* lilac */
+        radial-gradient(80% 70% at 80% 20%, rgba(255,255,240,0.2), transparent 70%);">
+  </div>
+
+  <!-- 🌤 subtle brightness lift -->
+  <div class="absolute inset-0 bg-gradient-to-t from-white/5 via-transparent to-transparent"></div>
+
+  <!-- 🌈 soft left scrim for readability -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent"></div>
+
+  <div class="relative z-10 flex min-h-[92vh] items-end">
+    <div class="container pb-24 md:pb-32">
+      <p class="mb-3 text-xs tracking-[0.2em] text-[var(--brand-sun)] uppercase font-semibold">
+        Nonprofit • Creativity • Community
+      </p>
+
+      <h1 class="font-serif font-normal leading-tight text-[var(--brand-peach)]
+                 text-[clamp(36px,5vw,86px)] max-w-[18ch] drop-shadow-[0_1px_10px_rgba(0,0,0,0.25)]">
+        A bright space for creativity and care
+      </h1>
+
+      <p class="mt-5 text-[var(--ink-warm)]/95 font-medium max-w-[60ch]">
+        Hands-on art sessions that build coping skills, friendships, and creative confidence for every child.
+      </p>
+
+      <a
+        href="#programs"
+        class="mt-7 inline-flex items-center justify-center rounded-md px-8 py-4 text-base font-semibold
+               shadow-md bg-[var(--brand-coral)] text-white ring-1 ring-white/10
+               hover:brightness-110 hover:-translate-y-[1px] transition"
+      >
+        Explore programs
+      </a>
+    </div>
+  </div>
+</section>
