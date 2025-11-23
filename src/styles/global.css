@@ -47,11 +47,17 @@
   .sparkle:nth-child(3){ animation-duration: 7.5s }
 
 /* Base */
-html,body{height:100%}
+/* html,body{height:100%}
 body{
   @apply antialiased;
   color: var(--ink);
   background: linear-gradient(180deg,#0c0c0e 0%, #121316 35%, #16171B 100%);
+} */
+
+body{
+  @apply antialiased;
+  color: #0f172a;
+  background: #fff;
 }
 
 /* Helpers */

@@ -4,36 +4,34 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import OurApproach from "../components/OurApproach.astro";
+import AboutFounder from "../components/AboutFounder.astro";
 ---
 <Layout title="Krafty Kids">
   <Header />
   <main>
     <Hero />
 
-    <!-- 2) Our Approach -->
+    <!-- Our Approach -->
     <OurApproach />
 
-    <!-- 3) Our Story -->
-    <section id="story" class="py-24 border-t border-white/10">
+    <!-- About / Founder -->
+    <AboutFounder />
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="py-24 border-t border-black/5 bg-white">
       <div class="container">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Our Story</h2>
-        <p class="text-white/80 max-w-[70ch]">Founding story / mission.</p>
+        <p class="section-kicker">Photo Gallery</p>
+        <h2 class="section-title mt-3 text-3xl md:text-5xl">Moments from our sessions</h2>
+        <p class="mt-4 text-slate-600">Grid goes here.</p>
       </div>
     </section>
 
-    <!-- 4) Photo Gallery -->
-    <section id="gallery" class="py-24 border-t border-white/10">
+    <!-- Contact -->
+    <section id="contact" class="py-24 border-t border-black/5 bg-white">
       <div class="container">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Photo Gallery</h2>
-        <p class="text-white/80">Grid goes here.</p>
-      </div>
-    </section>
-
-    <!-- 5) Contact -->
-    <section id="contact" class="py-24 border-t border-white/10">
-      <div class="container">
-        <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Contact</h2>
-        <p class="text-white/80">hello@kraftykids.org • Instagram • Donate</p>
+        <p class="section-kicker">Get in touch</p>
+        <h2 class="section-title mt-3 text-3xl md:text-5xl">Volunteer or partner with us</h2>
+        <p class="mt-4 text-slate-600">hello@kraftykids.org • Instagram • Donate</p>
       </div>
     </section>
   </main>

@@ -1,0 +1,63 @@
+---
+/*
+  AboutFounder.astro (Option 3: single image only for now)
+  Expects:
+    - public/images/about.jpg (main session image)
+    If your file is still .heic, convert to .jpg for browser support.
+*/
+
+const mainImage = "/images/about.jpg";
+---
+
+<section id="story" class="py-20 md:py-24 bg-white">
+  <div class="container grid items-center gap-10 md:grid-cols-2">
+    <!-- Left: single main image -->
+    <div class="mx-auto w-full max-w-xl">
+      <div class="relative rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden bg-slate-100 aspect-[4/3] md:aspect-[16/10]">
+        <img
+          src={mainImage}
+          alt="Krafty Kids art session"
+          class="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <p class="mt-3 text-xs text-slate-500">
+        Krafty Kids sessions are led in partnership with community organizations.
+      </p>
+    </div>
+
+    <!-- Right: copy -->
+    <div>
+      <p class="section-kicker">About Krafty Kids</p>
+
+      <h2 class="section-title mt-3 text-3xl md:text-5xl">
+        A youth-led nonprofit using creativity to build resilience and hope.
+      </h2>
+
+      <div class="mt-5 space-y-4 text-slate-700 leading-relaxed max-w-prose">
+        <p>
+          Krafty Kids supports disadvantaged and vulnerable children through art-based enrichment.
+          We partner with community organizations to offer hands-on art events that empower underserved youth
+          to grow social-emotional skills, self-expression, and community through creativity.
+        </p>
+
+        <p>
+          Our approach is grounded in research on social-emotional learning and informed by data insights from
+          participant feedback. Activities are designed to support emotional development and resilience, and we use
+          donated and reusable materials to keep programs sustainable, low-waste, and accessible to every child.
+        </p>
+
+        <p>
+          Krafty Kids was founded by Maya, a student volunteer who has spent the past three years leading creative
+          sessions for kids in her community. She started Krafty Kids to make these opportunities more consistent and
+          more widely available, so more children can experience strength, joy, and connection through art.
+        </p>
+
+        <p class="text-slate-600">
+          Outside of Krafty Kids, Maya loves swimming, field hockey, and writing poetry, and she brings that same
+          curiosity and care into every session she leads.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
