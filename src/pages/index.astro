@@ -5,6 +5,8 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import OurApproach from "../components/OurApproach.astro";
 import AboutFounder from "../components/AboutFounder.astro";
+import Events from "../components/Events.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 <Layout title="Krafty Kids">
   <Header />
@@ -17,6 +19,9 @@ import AboutFounder from "../components/AboutFounder.astro";
     <!-- About / Founder -->
     <AboutFounder />
 
+    <!-- Events -->
+    <Events />
+
     <!-- Photo Gallery -->
     <section id="gallery" class="py-24 border-t border-black/5 bg-white">
       <div class="container">
@@ -27,12 +32,6 @@ import AboutFounder from "../components/AboutFounder.astro";
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-24 border-t border-black/5 bg-white">
-      <div class="container">
-        <p class="section-kicker">Get in touch</p>
-        <h2 class="section-title mt-3 text-3xl md:text-5xl">Volunteer or partner with us</h2>
-        <p class="mt-4 text-slate-600">hello@kraftykids.org • Instagram • Donate</p>
-      </div>
-    </section>
+    <ContactForm />
   </main>
 </Layout>
