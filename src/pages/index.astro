@@ -6,6 +6,8 @@ import Hero from '../components/Hero.astro';
 import OurApproach from "../components/OurApproach.astro";
 import AboutFounder from "../components/AboutFounder.astro";
 import Events from "../components/Events.astro";
+import Gallery from "../components/Gallery.astro";
+import Donate from "../components/Donate.astro";
 import ContactForm from "../components/ContactForm.astro";
 ---
 <Layout title="Krafty Kids">
@@ -22,15 +24,13 @@ import ContactForm from "../components/ContactForm.astro";
     <!-- Events -->
     <Events />
 
-    <!-- Photo Gallery -->
-    <section id="gallery" class="py-24 border-t border-black/5 bg-white">
-      <div class="container">
-        <p class="section-kicker">Photo Gallery</p>
-        <h2 class="section-title mt-3 text-3xl md:text-5xl">Moments from our sessions</h2>
-        <p class="mt-4 text-slate-600">Grid goes here.</p>
-      </div>
-    </section>
 
+    <!-- Photo Gallery -->
+    <Gallery />
+    
+    <!-- Donate -->
+    <Donate />
+    
     <!-- Contact -->
     <ContactForm />
   </main>

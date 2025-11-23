@@ -1,0 +1,182 @@
+---
+const images = [
+  { src: "/images/gallery/gallery-01-wide-room.jpg", alt: "Krafty Kids session in progress" },
+  { src: "/images/gallery/gallery-02-wide-room.jpg", alt: "Kids creating art together at a community session" },
+  { src: "/images/gallery/gallery-03-wide-room.jpg", alt: "Wide view of a Krafty Kids art workshop" },
+  { src: "/images/gallery/gallery-04-action-girls.jpg", alt: "Students painting together" },
+  { src: "/images/gallery/gallery-07-action-instructor.jpg", alt: "Facilitator leading an art session" },
+  { src: "/images/gallery/gallery-06-portrait-girl-red.jpg", alt: "Student painting during a session" },
+  { src: "/images/gallery/gallery-05-portrait-boy-1.jpg", alt: "Student focused on painting" },
+  { src: "/images/gallery/gallery-09-portrait-boy-2.jpg", alt: "Student smiling with artwork" },
+  { src: "/images/gallery/gallery-08-portrait-standing-girl.jpg", alt: "Student posing proudly after a session" }
+];
+---
+
+<section id="gallery" class="py-20 md:py-24 border-t border-black/5 bg-white">
+  <div class="container">
+    <!-- Header -->
+    <header class="mx-auto mb-8 md:mb-10 max-w-3xl text-center">
+      <p class="section-kicker">Photo Gallery</p>
+      <h2 class="section-title mt-3 text-3xl md:text-5xl">
+        Moments from our sessions
+      </h2>
+      <p class="mt-4 text-slate-600">
+        A look at the creativity, connection, and confidence kids build with us.
+      </p>
+    </header>
+
+    <!-- Masonry via CSS columns -->
+    <div class="masonry">
+      {images.map((img, i) => (
+        <button
+          type="button"
+          class="masonry-item group"
+          aria-label={`Open photo ${i + 1}`}
+          data-lightbox-open
+          data-src={img.src}
+          data-alt={img.alt}
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            class="w-full rounded-2xl object-cover shadow-sm ring-1 ring-black/5 transition
+                   group-hover:shadow-md group-hover:-translate-y-0.5"
+          />
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+
+    <figure class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" type="button" aria-label="Close image" data-lightbox-close>
+        ×
+      </button>
+
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-cap" class="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <script is:inline>
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const lbCap = document.getElementById("lightbox-cap");
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lbCap.textContent = alt || "";
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      lbCap.textContent = "";
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-lightbox-open]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openLightbox(btn.dataset.src, btn.dataset.alt);
+      });
+    });
+
+    document.querySelectorAll("[data-lightbox-close]").forEach(el => {
+      el.addEventListener("click", closeLightbox);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lb.getAttribute("aria-hidden") === "false") {
+        closeLightbox();
+      }
+    });
+  </script>
+
+  <style>
+    /* Masonry columns */
+    .masonry {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+    @media (min-width: 640px) { /* sm */
+      .masonry { column-count: 2; column-gap: 1.25rem; }
+    }
+    @media (min-width: 1024px) { /* lg */
+      .masonry { column-count: 3; column-gap: 1.5rem; }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      width: 100%;
+      margin: 0 0 1rem;
+      background: transparent;
+      text-align: left;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: none;
+    }
+    .lightbox[aria-hidden="false"] {
+      display: block;
+    }
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(2px);
+    }
+    .lightbox-content {
+      position: relative;
+      margin: 5vh auto;
+      width: min(92vw, 1000px);
+      background: white;
+      border-radius: 18px;
+      padding: 0.75rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      display: grid;
+      gap: 0.5rem;
+    }
+    .lightbox-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      object-fit: contain;
+      max-height: 80vh;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      height: 36px;
+      width: 36px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid rgba(0,0,0,0.08);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .lightbox-close:hover {
+      background: var(--brand-peach);
+      color: var(--brand-coral);
+      border-color: rgba(229,87,87,0.5);
+    }
+    .lightbox-caption {
+      font-size: 0.9rem;
+      color: #334155;
+      padding: 0.25rem 0.5rem 0.5rem;
+      text-align: center;
+    }
+  </style>
+</section>
