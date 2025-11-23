@@ -1,10 +1,19 @@
+---
+const navLinks = [
+  { href: "#approach", label: "Approach" },
+  { href: "#story", label: "About" },
+  { href: "#events", label: "Events" },
+  { href: "#gallery", label: "Photos" },
+  { href: "#donate", label: "Donate" },
+  { href: "#contact", label: "Contact" }
+];
+---
+
 <header class="fixed inset-x-0 top-0 z-40">
   <div class="mx-auto w-full">
-    
     <!-- Soft peach tint header -->
     <div class="backdrop-blur-sm bg-[var(--brand-peach)]/70 border-b border-black/10 shadow-sm">
       <div class="container flex h-20 items-center justify-between">
-        
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3">
           <img
@@ -15,16 +24,16 @@
           <span class="sr-only">Krafty Kids</span>
         </a>
 
-        <!-- Nav -->
+        <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-10 text-[17px] font-medium text-slate-700">
-          <a href="#approach" class="hover:text-[var(--brand-coral)] transition-colors">Approach</a>
-          <a href="#story" class="hover:text-[var(--brand-coral)] transition-colors">About</a>
-          <a href="#events" class="hover:text-[var(--brand-coral)] transition-colors">Events</a>
-          <a href="#gallery" class="hover:text-[var(--brand-coral)] transition-colors">Photos</a>
-          <a href="#donate" class="hover:text-[var(--brand-coral)] transition-colors">Donate</a>
+          {navLinks.slice(0, 5).map(l => (
+            <a href={l.href} class="hover:text-[var(--brand-coral)] transition-colors">
+              {l.label}
+            </a>
+          ))}
         </nav>
 
-        <!-- Contact CTA -->
+        <!-- Desktop Contact CTA -->
         <a
           href="#contact"
           class="hidden md:inline-flex items-center rounded-full bg-[var(--brand-coral)] px-4 py-2.5 text-sm font-semibold text-white shadow
@@ -33,10 +42,13 @@
           Contact
         </a>
 
-        <!-- Mobile menu button (placeholder) -->
+        <!-- Mobile menu button -->
         <button
+          id="mobile-menu-button"
           class="md:hidden inline-flex items-center justify-center rounded p-2 text-slate-900/80 hover:text-slate-900"
           aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                viewBox="0 0 24 24" stroke="currentColor">
@@ -44,8 +56,72 @@
                   d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
-
       </div>
+
+      <!-- Mobile dropdown panel -->
+      <nav
+        id="mobile-menu"
+        class="md:hidden hidden border-t border-black/10 bg-white/95 backdrop-blur-sm"
+      >
+        <div class="container py-4 flex flex-col gap-2">
+          {navLinks.map(l => (
+            <a
+              href={l.href}
+              class="rounded-lg px-3 py-2 text-base font-medium text-slate-800
+                     hover:bg-[var(--brand-peach)]/70 hover:text-[var(--brand-coral)] transition"
+              data-mobile-link
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </nav>
     </div>
   </div>
+
+  <script is:inline>
+    const btn = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+    const links = menu?.querySelectorAll("[data-mobile-link]");
+
+    function toggleMenu(forceClose = false) {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      const newState = forceClose ? false : !isOpen;
+      btn.setAttribute("aria-expanded", String(newState));
+      menu.classList.toggle("hidden", !newState);
+    }
+
+    btn?.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent button clicks from triggering outside handler
+      toggleMenu();
+    });
+
+    // close when clicking a link
+    links?.forEach((link) => {
+      link.addEventListener("click", () => {
+        toggleMenu(true);
+      });
+    });
+
+    // close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+        toggleMenu(true);
+      }
+    });
+
+    // close when clicking outside the menu
+    document.addEventListener("click", (e) => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      if (!isOpen) return;
+
+      const clickInsideMenu = menu.contains(e.target);
+      const clickOnButton = btn.contains(e.target);
+
+      if (!clickInsideMenu && !clickOnButton) {
+        toggleMenu(true);
+      }
+    });
+  </script>
+
 </header>

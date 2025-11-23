@@ -1,0 +1,44 @@
+---
+const email = "kraftykidsteam@gmail.com";
+
+// Placeholder Instagram link.
+// Update when Maya creates the real account.
+const instagramUrl = "#";
+const instagramLabel = "Instagram (coming soon)";
+---
+
+<footer class="mt-0 border-t border-black/5 bg-[var(--brand-peach)]/60">
+  <div class="container py-14 md:py-16">
+
+    <!-- Footer content -->
+    <div class="flex flex-col items-center text-center gap-4">
+      <img
+        src="/images/krafty-logo.png"
+        alt="Krafty Kids"
+        class="h-10 w-auto"
+      />
+
+      <p class="max-w-2xl text-slate-700 leading-relaxed">
+        Krafty Kids Inc. is a youth-led nonprofit organization.
+        Serving our community through creative care.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-700">
+        <a href={`mailto:${email}`} class="hover:text-[var(--brand-coral)] transition-colors">
+          {email}
+        </a>
+        <a href="#donate" class="hover:text-[var(--brand-coral)] transition-colors">
+          Donate
+        </a>
+        <a href={instagramUrl} class="hover:text-[var(--brand-coral)] transition-colors">
+          {instagramLabel}
+        </a>
+      </div>
+
+      <p class="mt-2 text-xs text-slate-500">
+        Thanks for supporting creativity, resilience, and connection for kids.
+      </p>
+    </div>
+
+  </div>
+</footer>
