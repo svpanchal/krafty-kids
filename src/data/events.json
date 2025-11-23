@@ -22,6 +22,17 @@
         "isUpcoming": true
     },
     {
+        "title": "Holiday Creativity Jamboree",
+        "startDate": "2025-10-05",
+        "time": "11:00 am–1:00 pm",
+        "location": "Local community center",
+        "type": "community",
+        "summary": "A drop-in art event using donated and reusable materials to make creativity accessible to all kids.",
+        "ctaLabel": "Register",
+        "ctaUrl": "#contact",
+        "isUpcoming": true
+    },
+    {
         "title": "Summer Creativity Lab",
         "startDate": "2025-07-20",
         "location": "Community Center",
