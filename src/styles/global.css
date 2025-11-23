@@ -5,70 +5,107 @@
 
 /* Theme tokens */
 /* Brand-ish colors from the logo */
-:root{
-    --brand-coral:#E55757;   /* logo red/coral */
-    --brand-peach:#FFE9DF;   /* palette/brush body */
-    --brand-sun:#F7EA65;     /* CTA yellow you used */
-    --brand-lilac:#A884F5;   /* brush handle purple */
-    --ink-warm:#FFF3ED;      /* warm light for headlines on photos */
-  }
-/* Reset the page background and default text color */
-    html, body {
-        background: #fff;
-        color: #0f172a; /* slate-900 */
-    }
-/* Section utilities so headings are consistent everywhere */
-.section-kicker {
-    font-size: .78rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--brand-coral);
-  }
-  
-  .section-title {
-    font-family: ui-serif, Georgia, "Times New Roman", serif;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--brand-coral);          /* <-- bright brand heading color */
-  }
-  
-  /* Fun headline glow (subtle, colorful—not gothic) */
-  .text-glow-warm{
-    text-shadow:
-      0 1px 0 rgba(0,0,0,.18),
-      0 0 14px rgba(229,87,87,.22),
-      0 0 26px rgba(168,132,245,.18);
-  }
-  /* Float animation for sparkles */
-  @keyframes floaty { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } }
-  .sparkle { animation: floaty 5s ease-in-out infinite; }
-  .sparkle:nth-child(2){ animation-duration: 6.5s }
-  .sparkle:nth-child(3){ animation-duration: 7.5s }
-
-/* Base */
-/* html,body{height:100%}
-body{
-  @apply antialiased;
-  color: var(--ink);
-  background: linear-gradient(180deg,#0c0c0e 0%, #121316 35%, #16171B 100%);
-} */
-
-body{
-  @apply antialiased;
-  color: #0f172a;
-  background: #fff;
+:root {
+  --brand-coral: #E55757;  /* logo red/coral */
+  --brand-peach: #FFE9DF;  /* palette/brush body */
+  --brand-sun:   #F7EA65;  /* CTA yellow */
+  --brand-lilac: #A884F5;  /* brush handle purple */
+  --ink-warm:    #FFF3ED;  /* warm light for headlines on photos */
 }
 
-/* Helpers */
-.container{width:min(1200px,100% - 2rem); margin-inline:auto}
-.glass{
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  border-radius: 18px;
+/* Base page background + text */
+html, body {
+  height: 100%;
+  background: #fff;
+  color: #0f172a; /* slate-900 */
+}
+
+body {
+  @apply antialiased;
+  background: #fff;
+  color: #0f172a;
+}
+
+/* Layout helpers */
+.container {
+  width: min(1200px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+/* Typography utilities so headings are consistent everywhere */
+.section-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-coral);
+}
+
+.section-title {
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--brand-coral);
+}
+
+/* Fun headline glow (subtle, colorful) */
+.text-glow-warm {
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.18),
+    0 0 14px rgba(229,87,87,0.22),
+    0 0 26px rgba(168,132,245,0.18);
 }
 
 /* Text shadow helper for headlines over photos */
-.text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,.45); }
+.text-shadow {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+
+/* Float animation for sparkles */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.sparkle {
+  animation: floaty 5s ease-in-out infinite;
+}
+.sparkle:nth-child(2) { animation-duration: 6.5s; }
+.sparkle:nth-child(3) { animation-duration: 7.5s; }
+
+/* Optional soft card surface (still useful in case you reuse it later) */
+.glass {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 18px;
+}
+
+/* Divider dots global utility (acts as a fallback override)
+   Your DividerDots.astro styles are scoped, but this ensures
+   no accidental white background ever shows up. */
+   .divider-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    padding:0;
+    margin:0;
+    background:transparent;
+    line-height:0;
+  }
+  .divider-dots .dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    opacity:.7;
+  }
+  .divider-dots .dot-coral{ background: var(--brand-coral); }
+  .divider-dots .dot-lilac{ background: var(--brand-lilac); }
+  .divider-dots .dot-sun{ background: var(--brand-sun); }
+  .divider-dots .dot-mint{ background: #C8F5D2; }
+  
+.divider-dots .dot:hover {
+  opacity: 1;
+}

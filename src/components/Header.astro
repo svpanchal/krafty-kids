@@ -12,7 +12,7 @@ const navLinks = [
 <header class="fixed inset-x-0 top-0 z-40">
   <div class="mx-auto w-full">
     <!-- Soft peach tint header -->
-    <div class="backdrop-blur-sm bg-[var(--brand-peach)]/70 border-b border-black/10 shadow-sm">
+    <div class="backdrop-blur-sm bg-[var(--brand-peach)]/70 shadow-sm">
       <div class="container flex h-20 items-center justify-between">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3">
@@ -61,7 +61,7 @@ const navLinks = [
       <!-- Mobile dropdown panel -->
       <nav
         id="mobile-menu"
-        class="md:hidden hidden border-t border-black/10 bg-white/95 backdrop-blur-sm"
+        class="md:hidden hidden bg-white/95 backdrop-blur-sm"
       >
         <div class="container py-4 flex flex-col gap-2">
           {navLinks.map(l => (

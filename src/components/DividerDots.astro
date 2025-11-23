@@ -1,0 +1,54 @@
+---
+/*
+  DividerDots.astro
+  Usage:
+    <DividerDots />
+    <DividerDots position="top" />
+    <DividerDots position="bottom" />
+    <DividerDots className="mt-6" />  // optional extra spacing when YOU want it
+*/
+const { position = "bottom", className = "" } = Astro.props;
+---
+
+<div class={`divider-dots divider-${position} ${className}`} aria-hidden="true">
+  <span class="dot dot-coral"></span>
+  <span class="dot dot-lilac"></span>
+  <span class="dot dot-sun"></span>
+  <span class="dot dot-mint"></span>
+</div>
+
+<style>
+  .divider-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    line-height:0;     /* prevents any text-line height contribution */
+    height:auto;       /* no forced height */
+    margin:0;          /* no vertical space by default */
+    padding:0;         /* key fix */
+  }
+
+  .dot{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    opacity:.7;
+  }
+
+  .dot-coral{ background: var(--brand-coral); }
+  .dot-lilac{ background: var(--brand-lilac); }
+  .dot-sun{ background: var(--brand-sun); }
+  .dot-mint{ background: #C8F5D2; }
+
+  /* Optional subtle positioning tweaks */
+  .divider-top{ margin-bottom:12px; }
+  .divider-bottom{ margin-top:12px; }
+
+  @media (min-width: 768px){
+    .dot{ width:7px; height:7px; }
+    .divider-top{ margin-bottom:14px; }
+    .divider-bottom{ margin-top:14px; }
+  }
+</style>

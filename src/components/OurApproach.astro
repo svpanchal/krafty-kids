@@ -1,27 +1,26 @@
 ---
+import DividerDots from "./DividerDots.astro";
+
 const pillars = [
   {
     title: "Creative Expression",
-    body:
-      "Guided art-making gives kids a safe, proven way to explore emotions, build self-awareness, and give concrete form to complicated feelings.",
+    body: "Guided art-making gives kids a safe...",
     tint: "bg-[var(--brand-peach)]/35",
   },
   {
     title: "Safe Connection",
-    body:
-      "In small groups led with community partners, kids find belonging, supportive mentors, and friendships that strengthen confidence and care.",
+    body: "In small groups led with community partners...",
     tint: "bg-[var(--brand-lilac)]/20",
   },
   {
     title: "Resilient Growth",
-    body:
-      "Completing projects helps kids practice coping skills and resilience, using donated and reusable materials that keep sessions sustainable and open to all.",
+    body: "Completing projects helps kids practice coping skills...",
     tint: "bg-emerald-50/70",
   },
 ];
 ---
 
-<section id="approach" class="relative isolate overflow-hidden py-20 md:py-28 bg-white">
+<section id="approach" class="relative isolate overflow-hidden py-20 md:py-28 bg-[var(--brand-peach)]/25">
   {/* Background polish: soft peach → transparent diagonal wash */}
   <div
     class="pointer-events-none absolute inset-0 -z-10"
