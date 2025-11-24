@@ -1,37 +1,42 @@
 ---
-import DividerDots from "./DividerDots.astro";
-
 const pillars = [
   {
     title: "Creative Expression",
     body:
-      "Guided art-making gives kids a safe, proven way to explore emotions, build self-awareness, and transform complicated feelings into concrete form through creative work.",
+      "Guided art-making helps kids express emotions that can be hard to name, turning feelings into images and stories they can understand and talk about. Research on art-based and creative arts therapies shows this process supports emotional regulation, self-awareness, and reduced distress, especially for children navigating stress or trauma.",
     tint: "bg-[var(--brand-peach)]/35",
     icon: "/images/icon-creative.svg",
     link: "https://pubmed.ncbi.nlm.nih.gov/39416439/",
+    hoverRing: "hover:ring-[var(--brand-coral)]/60",
   },
   {
     title: "Safe Connection",
     body:
-      "In small group sessions led with community partners, kids find belonging, supportive mentors, and friendships that strengthen confidence and care.",
+      "We design sessions to feel emotionally safe and predictable, so kids can take creative risks without fear of judgment. Trauma-informed art therapy research highlights that safety, consistency, choice, and supportive relationships help children feel grounded, seen, and connected to others.",
     tint: "bg-[var(--brand-lilac)]/20",
     icon: "/images/icon-connection.svg",
     link:
       "https://www.thearttherapyresourceshub.com/creating-emotionally-safe-art-therapy-spaces/",
+    hoverRing: "hover:ring-[var(--brand-lilac)]/60",
   },
   {
     title: "Resilient Growth",
     body:
-      "Completing creative projects helps kids practice coping skills, build resilience, and use donated, reusable materials in ways that keep sessions sustainable and accessible for everyone.",
+      "Creative projects teach kids that progress comes through trying, revising, and trying again. Art is a natural space to practice a growth mindset, persistence, and problem-solving, helping kids build confidence in their ability to handle challenges over time. We create room for kids to explore freely, test out new ideas, and express their own stories in ways that feel safe and empowering.",
     tint: "bg-emerald-50/70",
     icon: "/images/icon-reslience.svg",
     link:
       "https://www.nea.org/professional-excellence/student-engagement/tools-tips/encouraging-growth-mindset-through-art",
+    hoverRing: "hover:ring-emerald-600/50",
   },
 ];
 ---
 
-<section id="approach" class="relative isolate overflow-hidden py-20 md:py-28 bg-[var(--brand-peach)]/25">
+<section
+  id="approach"
+  class="relative isolate overflow-hidden py-20 md:py-28 bg-[var(--brand-peach)]/25"
+>
+  <!-- Background polish: soft peach -> transparent diagonal wash -->
   <div
     class="pointer-events-none absolute inset-0 -z-10"
     style="background:
@@ -40,28 +45,41 @@ const pillars = [
   ></div>
 
   <div class="container">
+    <!-- Section header -->
     <header class="mx-auto mb-12 md:mb-14 max-w-3xl text-center">
       <p class="section-kicker">Our Approach</p>
       <h2 class="section-title mt-3 text-3xl md:text-5xl">
         Creativity as care. Community as confidence.
       </h2>
       <p class="mt-4 text-slate-600">
-        Our programs provides opportunities for kids to build emotional resilience, confidence, and healthy coping skills through creative work.
+        We use research-backed art practices to help kids build emotional resilience, confidence, and healthy coping skills in a supportive, creative community.
       </p>
     </header>
 
+    <!-- Cards -->
     <div class="grid gap-6 md:gap-8 md:grid-cols-3">
       {pillars.map((p) => (
-        <article class={`group rounded-2xl p-7 md:p-8 shadow-sm transition hover:shadow-md ${p.tint}`}>
+        <a
+          href={p.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open research source for ${p.title} in a new tab`}
+          class={`group block rounded-2xl p-7 md:p-8 shadow-sm transition
+                  ${p.tint} ${p.hoverRing}
+                  hover:shadow-md hover:ring-2 hover:ring-offset-2
+                  hover:-translate-y-1 focus-visible:outline-none
+                  focus-visible:ring-2 focus-visible:ring-offset-2`}
+        >
           <div class="mb-5 flex items-center justify-center">
             <div
-              class="grid h-40 w-40 place-items-center rounded-2xl bg-white/95 ring-1 ring-black/10 shadow-sm"
+              class="grid h-40 w-40 place-items-center rounded-2xl bg-white/95 ring-1 ring-black/10 shadow-sm transition
+                     group-hover:shadow-md"
               aria-hidden="true"
             >
               <img
                 src={p.icon}
                 alt=""
-                class="h-38 w-38 object-contain"
+                class="h-36 w-36 object-contain"
                 loading="lazy"
               />
             </div>
@@ -75,15 +93,14 @@ const pillars = [
             {p.body}
           </p>
 
-          <a
-            href={p.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-4 inline-block text-base text-slate-500 hover:text-slate-700 underline decoration-slate-300"
+          <div
+            class="mt-4 inline-flex items-center gap-1 text-base text-slate-500 underline decoration-slate-300 transition
+                   group-hover:text-slate-700"
           >
-            Learn the science behind this
-          </a>
-        </article>
+            Explore the research behind this
+            <span aria-hidden="true" class="text-sm">↗</span>
+          </div>
+        </a>
       ))}
     </div>
   </div>
