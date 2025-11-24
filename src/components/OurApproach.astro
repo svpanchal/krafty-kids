@@ -4,24 +4,34 @@ import DividerDots from "./DividerDots.astro";
 const pillars = [
   {
     title: "Creative Expression",
-    body: "Guided art-making gives kids a safe, proven way to explore emotions, build self-awareness, and transform complicated feelings into concrete form through creative work.",
+    body:
+      "Guided art-making gives kids a safe, proven way to explore emotions, build self-awareness, and transform complicated feelings into concrete form through creative work.",
     tint: "bg-[var(--brand-peach)]/35",
+    icon: "/images/icon-creative.svg",
+    link: "https://pubmed.ncbi.nlm.nih.gov/39416439/",
   },
   {
     title: "Safe Connection",
-    body: "In small group sessions led with community partners, kids find belonging, supportive mentors, and friendships that strengthen confidence and care.",
+    body:
+      "In small group sessions led with community partners, kids find belonging, supportive mentors, and friendships that strengthen confidence and care.",
     tint: "bg-[var(--brand-lilac)]/20",
+    icon: "/images/icon-connection.svg",
+    link:
+      "https://www.thearttherapyresourceshub.com/creating-emotionally-safe-art-therapy-spaces/",
   },
   {
     title: "Resilient Growth",
-    body: "Completing creative projects helps kids practice coping skills, build resilience, and use donated, reusable materials in ways that keep sessions sustainable and accessible for everyone.",
+    body:
+      "Completing creative projects helps kids practice coping skills, build resilience, and use donated, reusable materials in ways that keep sessions sustainable and accessible for everyone.",
     tint: "bg-emerald-50/70",
+    icon: "/images/icon-reslience.svg",
+    link:
+      "https://www.nea.org/professional-excellence/student-engagement/tools-tips/encouraging-growth-mindset-through-art",
   },
 ];
 ---
 
 <section id="approach" class="relative isolate overflow-hidden py-20 md:py-28 bg-[var(--brand-peach)]/25">
-  {/* Background polish: soft peach → transparent diagonal wash */}
   <div
     class="pointer-events-none absolute inset-0 -z-10"
     style="background:
@@ -30,7 +40,6 @@ const pillars = [
   ></div>
 
   <div class="container">
-    {/* Section header */}
     <header class="mx-auto mb-12 md:mb-14 max-w-3xl text-center">
       <p class="section-kicker">Our Approach</p>
       <h2 class="section-title mt-3 text-3xl md:text-5xl">
@@ -41,29 +50,39 @@ const pillars = [
       </p>
     </header>
 
-    {/* Cards */}
     <div class="grid gap-6 md:gap-8 md:grid-cols-3">
       {pillars.map((p) => (
-        <article
-          class={`group rounded-2xl p-7 md:p-8 shadow-sm transition hover:shadow-md ${p.tint}`}
-        >
+        <article class={`group rounded-2xl p-7 md:p-8 shadow-sm transition hover:shadow-md ${p.tint}`}>
           <div class="mb-5 flex items-center justify-center">
-            {/* White icon tile placeholder */}
             <div
-              class="grid h-14 w-14 place-items-center rounded-2xl bg-white/95 ring-1 ring-black/10 shadow-sm"
+              class="grid h-40 w-40 place-items-center rounded-2xl bg-white/95 ring-1 ring-black/10 shadow-sm"
               aria-hidden="true"
             >
-              {/* Placeholder icon for now */}
-              <div class="h-7 w-7 rounded-full bg-black/10"></div>
+              <img
+                src={p.icon}
+                alt=""
+                class="h-38 w-38 object-contain"
+                loading="lazy"
+              />
             </div>
           </div>
 
           <h3 class="text-lg md:text-xl font-semibold text-slate-900">
             {p.title}
           </h3>
+
           <p class="mt-3 text-slate-700 leading-relaxed">
             {p.body}
           </p>
+
+          <a
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block text-base text-slate-500 hover:text-slate-700 underline decoration-slate-300"
+          >
+            Learn the science behind this
+          </a>
         </article>
       ))}
     </div>
