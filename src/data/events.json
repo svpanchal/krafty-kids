@@ -8,7 +8,7 @@
         "summary": "A hands-on workshop focused on self-expression, connection, and social-emotional growth through mixed media.",
         "ctaLabel": "Volunteer",
         "ctaUrl": "#contact",
-        "isUpcoming": true
+        "isUpcoming": false
     },
     {
         "title": "Testing with Maya",
@@ -19,7 +19,7 @@
         "summary": "A hands-on workshop focused on self-expression, connection, and social-emotional growth through mixed media.",
         "ctaLabel": "Volunteer",
         "ctaUrl": "#contact",
-        "isUpcoming": true
+        "isUpcoming": false
     },
     {
         "title": "Community Creativity Day",
@@ -30,7 +30,7 @@
         "summary": "A drop-in art event using donated and reusable materials to make creativity accessible to all kids.",
         "ctaLabel": "Register",
         "ctaUrl": "#contact",
-        "isUpcoming": true
+        "isUpcoming": false
     },
     {
         "title": "Holiday Creativity Jamboree",
@@ -41,7 +41,7 @@
         "summary": "A drop-in art event using donated and reusable materials to make creativity accessible to all kids.",
         "ctaLabel": "Register",
         "ctaUrl": "#contact",
-        "isUpcoming": true
+        "isUpcoming": false
     },
     {
         "title": "Summer Creativity Lab",

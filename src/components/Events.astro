@@ -7,40 +7,39 @@ const formatDate = (iso) => {
     return new Date(iso + "T00:00:00").toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
-      year: "numeric"
+      year: "numeric",
     });
   } catch {
     return iso;
   }
 };
 
-const upcoming = events.filter(e => e.isUpcoming);
-const past = events.filter(e => !e.isUpcoming);
+const upcoming = events.filter((e) => e.isUpcoming);
 
 // Soft tint rotation for upcoming cards
 const tints = [
   "bg-[var(--brand-peach)]/35",
   "bg-[var(--brand-lilac)]/20",
-  "bg-emerald-50/70"
+  "bg-emerald-50/70",
 ];
 ---
 
 <section id="events" class="py-20 md:py-24 bg-[var(--brand-peach)]/25">
   <div class="container">
-    <!-- Header -->
+    {/* Header */}
     <header class="mx-auto mb-10 md:mb-12 max-w-3xl text-center">
       <p class="section-kicker">Events</p>
       <h2 class="section-title mt-3 text-3xl md:text-5xl">
         Upcoming sessions and community events
       </h2>
       <p class="mt-4 text-slate-600">
-        Our workshops are designed using research-backed social-emotional learning practices
-        and refined with participant feedback.
+        Our workshops are designed using research-backed social-emotional
+        learning practices and refined with participant feedback.
       </p>
     </header>
 
-    <!-- Upcoming -->
-    <div class="mb-12 md:mb-14">
+    {/* Upcoming */}
+    <div class="mb-2 md:mb-4">
       <h3 class="text-xl md:text-2xl font-semibold text-slate-900 mb-4">
         Upcoming
       </h3>
@@ -48,17 +47,19 @@ const tints = [
       {upcoming.length === 0 && (
         <div class="rounded-2xl border border-black/5 p-6 md:p-8 bg-white shadow-sm">
           <p class="text-slate-700">
-            No upcoming events are posted yet. We are planning our next sessions now.
+            No upcoming events are posted yet. We are planning our next
+            sessions now. Please check back soon or reach out if you would
+            like to host a workshop.
           </p>
           <a
             href="#contact"
             class="mt-4 inline-flex items-center rounded-xl
-                bg-white px-4 py-2 text-sm font-semibold text-slate-900
-                ring-1 ring-black/10 shadow-sm
-                transition-colors duration-200
-                hover:bg-[var(--brand-peach)]/80 hover:text-[var(--brand-coral)]
-                hover:ring-[var(--brand-coral)]/70 hover:shadow-md"
-            >
+              bg-white px-4 py-2 text-sm font-semibold text-slate-900
+              ring-1 ring-black/10 shadow-sm
+              transition-colors duration-200
+              hover:bg-[var(--brand-peach)]/80 hover:text-[var(--brand-coral)]
+              hover:ring-[var(--brand-coral)]/70 hover:shadow-md"
+          >
             Get in touch
           </a>
         </div>
@@ -67,7 +68,11 @@ const tints = [
       {upcoming.length > 0 && (
         <div class="grid gap-6 md:grid-cols-3">
           {upcoming.map((event, i) => (
-            <article class={`rounded-2xl p-6 md:p-7 shadow-sm ring-1 ring-black/5 ${tints[i % tints.length]}`}>
+            <article
+              class={`rounded-2xl p-6 md:p-7 shadow-sm ring-1 ring-black/5 ${
+                tints[i % tints.length]
+              }`}
+            >
               <div class="text-sm text-slate-600">
                 {formatDate(event.startDate)}
                 {event.time ? ` • ${event.time}` : ""}
@@ -98,7 +103,7 @@ const tints = [
                     transition-colors duration-200
                     hover:bg-[var(--brand-peach)]/80 hover:text-[var(--brand-coral)]
                     hover:ring-[var(--brand-coral)]/70 hover:shadow-md"
-                    >
+                >
                   {event.ctaLabel}
                 </a>
               )}
@@ -107,7 +112,5 @@ const tints = [
         </div>
       )}
     </div>
-
-    <!-- Past -->
   </div>
 </section>
