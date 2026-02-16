@@ -1,55 +1,30 @@
 [
     {
-        "title": "Fall Art Session with Community Partner",
-        "startDate": "2025-09-14",
-        "time": "2:00–4:00 pm",
-        "location": "Partner site (details shared after registration)",
+        "title": "Keep the Love Going: A Post-Valentines Event",
+        "startDate": "2026-02-20",
+        "time": "5:00–6:00 PM PST",
+        "location": "LifeMoves Villa",
+        "address": "184 S 11th St, San Jose, CA 95112",
+        "mapsUrl": "https://maps.google.com/?q=184%20S%2011th%20St%2C%20San%20Jose%2C%20CA%2095112",
+        "partnerLogo": "/images/partners/lifemoves.png",
         "type": "session",
-        "summary": "A hands-on workshop focused on self-expression, connection, and social-emotional growth through mixed media.",
-        "ctaLabel": "Volunteer",
+        "summary": "A hands-on workshop to create heartfelt cards and sweet treats to share with others.",
+        "ctaLabel": "Sign up to volunteer",
         "ctaUrl": "#contact",
-        "isUpcoming": false
+        "isUpcoming": true
     },
     {
-        "title": "Testing with Maya",
-        "startDate": "2025-09-14",
-        "time": "2:00–4:00 pm",
-        "location": "Partner site (details shared after registration)",
+        "title": "Creatures You Can Feel: A Clay Animal Workshop",
+        "startDate": "2026-02-28",
+        "time": "2:00–4:00 PM PST",
+        "location": "Vista Center for the Blind and Visually Impaired",
+        "address": "101 N Bascom Ave, San Jose, CA 95128",
+        "mapsUrl": "https://maps.google.com/?q=101%20N%20Bascom%20Ave%2C%20San%20Jose%2C%20CA%2095128",
+        "partnerLogo": "/images/partners/vista-center.png",
         "type": "session",
-        "summary": "A hands-on workshop focused on self-expression, connection, and social-emotional growth through mixed media.",
-        "ctaLabel": "Volunteer",
+        "summary": "A sensory-rich clay workshop supporting creative expression and ECC skill development.",
+        "ctaLabel": "Sign up to volunteer",
         "ctaUrl": "#contact",
-        "isUpcoming": false
-    },
-    {
-        "title": "Community Creativity Day",
-        "startDate": "2025-10-05",
-        "time": "11:00 am–1:00 pm",
-        "location": "Local community center",
-        "type": "community",
-        "summary": "A drop-in art event using donated and reusable materials to make creativity accessible to all kids.",
-        "ctaLabel": "Register",
-        "ctaUrl": "#contact",
-        "isUpcoming": false
-    },
-    {
-        "title": "Holiday Creativity Jamboree",
-        "startDate": "2025-10-05",
-        "time": "11:00 am–1:00 pm",
-        "location": "Local community center",
-        "type": "community",
-        "summary": "A drop-in art event using donated and reusable materials to make creativity accessible to all kids.",
-        "ctaLabel": "Register",
-        "ctaUrl": "#contact",
-        "isUpcoming": false
-    },
-    {
-        "title": "Summer Creativity Lab",
-        "startDate": "2025-07-20",
-        "location": "Community Center",
-        "type": "session",
-        "summary": "Kids explored emotions through reusable collage materials and collaborative projects.",
-        "isUpcoming": false
+        "isUpcoming": true
     }
-  ]
-  
+]

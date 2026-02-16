@@ -1,7 +1,11 @@
 ---
-const { title = 'Krafty Kids', description = 'Creativity • Community' } = Astro.props;
-import '../styles/global.css';
+// src/layouts/Layout.astro
+const { title = "Krafty Kids", description = "Creativity • Community" } =
+  Astro.props;
+
+import "../styles/global.css";
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,11 +13,45 @@ import '../styles/global.css';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/krafty-favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body class="font-sans text-base leading-relaxed">
     <slot />
+
+    {/* Sticky Donate Button */}
+    <a
+      href="#donate"
+      id="sticky-donate"
+      class="sticky-donate kk-hidden"
+      aria-label="Donate to Krafty Kids"
+    >
+      Donate
+    </a>
+
+    <script is:inline>
+      const donateBtn = document.getElementById("sticky-donate");
+      const showAfter = 500;
+
+      function updateDonateButton() {
+        if (!donateBtn) return;
+
+        if (window.scrollY > showAfter) {
+          donateBtn.classList.remove("kk-hidden");
+        } else {
+          donateBtn.classList.add("kk-hidden");
+        }
+      }
+
+      window.addEventListener("scroll", updateDonateButton, { passive: true });
+      updateDonateButton();
+    </script>
   </body>
 </html>
