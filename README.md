@@ -7,6 +7,12 @@ The site is designed to be fast, secure, and easy to update. Most updates only r
 Project email:
 [kraftykidsteam@gmail.com](mailto:kraftykidsteam@gmail.com)
 
+Live website:
+[https://kraftykids.org/](https://kraftykids.org/)
+
+Development preview:
+[https://krafty-kids.pages.dev/](https://krafty-kids.pages.dev/)
+
 ---
 
 # How to Add or Update Events (For Krafty Kids Team)
@@ -19,7 +25,7 @@ All events are controlled by this file:
 src/data/events.json
 ```
 
-When you update this file and click "Commit changes", the website updates automatically within about 30 to 60 seconds.
+When you update this file and click "Commit changes", the website updates automatically.
 
 No manual publishing is required.
 
@@ -29,7 +35,7 @@ No manual publishing is required.
 
 Go to the GitHub repository:
 
-PASTE REPOSITORY LINK HERE
+(https://github.com/svpanchal/krafty-kids)
 
 Log in to your GitHub account if needed.
 
@@ -113,16 +119,53 @@ The website will update automatically within about 30 to 60 seconds.
 
 ---
 
-## Important Safety Rules
+# How Updates Work and How to Check Them
 
-Please be careful to:
+There are two versions of the website:
 
-* Keep quotation marks intact
-* Keep commas between events
-* Do not delete brackets [ ] or { }
-* Copy existing events instead of creating new ones from scratch
+Development preview:
+[https://krafty-kids.pages.dev/](https://krafty-kids.pages.dev/)
 
-If something goes wrong, you can edit the file again and fix it.
+Live public website:
+[https://kraftykids.org/](https://kraftykids.org/)
+
+When you update events.json and commit changes:
+
+1. GitHub saves your changes
+2. Cloudflare rebuilds the website automatically
+3. The updated version goes live
+
+This usually takes about 30 to 60 seconds.
+
+---
+
+## How to confirm your changes are live
+
+Step 1: Wait about 60 seconds
+
+Step 2: Visit the preview site:
+[https://krafty-kids.pages.dev/](https://krafty-kids.pages.dev/)
+
+Confirm your changes appear.
+
+Step 3: Visit the live site:
+[https://kraftykids.org/](https://kraftykids.org/)
+
+Confirm your changes appear there too.
+
+---
+
+## If you do not see your changes
+
+Refresh the page.
+
+On Mac:
+Press Command + Shift + R
+
+On Windows:
+Press Ctrl + Shift + R
+
+This forces your browser to load the newest version.
 
 ---
 
@@ -139,6 +182,19 @@ to:
 ```
 "isUpcoming": false
 ```
+
+---
+
+## Important Safety Rules
+
+Please be careful to:
+
+* Keep quotation marks intact
+* Keep commas between events
+* Do not delete brackets [ ] or { }
+* Copy existing events instead of creating new ones from scratch
+
+If something goes wrong, you can fix the file and click Commit changes again.
 
 ---
 
@@ -164,29 +220,24 @@ Formspree
 
 ---
 
-## How deployment works
-
-Deployment is automatic. No manual publishing is required.
-
-Process:
+## How deployment works (simple explanation)
 
 ```
-Edit events.json
-→ Commit changes on GitHub
-→ Cloudflare detects changes
-→ Cloudflare rebuilds the site
-→ Updated website goes live
+You edit events.json
+→ You click Commit changes
+→ Cloudflare rebuilds the website automatically
+→ The updated website goes live
 ```
 
-This typically takes about 30 to 60 seconds.
+No manual publishing is required.
 
 ---
 
 # Forms and Contact Submissions
 
-Contact and signup forms on the website are handled by Formspree.
+Forms on the website are handled by Formspree.
 
-Form submissions are securely processed by Formspree and delivered to the project email:
+Form submissions are securely delivered to:
 
 [kraftykidsteam@gmail.com](mailto:kraftykidsteam@gmail.com)
 
@@ -238,13 +289,13 @@ DNS provider: Cloudflare
 
 Form backend: Formspree
 
-Architecture: Static site (no traditional backend required)
+Architecture: Static site with automatic deployment
 
 ---
 
 # Local Development (Optional)
 
-Only needed for developers working on the site.
+Only needed for developers.
 
 Install dependencies:
 
@@ -262,6 +313,6 @@ npm run dev
 
 # Support
 
-For access, questions, or support:
+For questions, access, or help:
 
 [kraftykidsteam@gmail.com](mailto:kraftykidsteam@gmail.com)
